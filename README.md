@@ -2,7 +2,7 @@
 
 iOSAudioPlayer is a Swift based iOS module that provides player control features. This module represents a wrapper over AVPlayer. It is available starting with iOS 8.
 
-![](screenshots/AudioPlayerDemo.gif)
+![](Screenshots/AudioPlayerDemo.gif)
 
 **Project Rationale**
 
