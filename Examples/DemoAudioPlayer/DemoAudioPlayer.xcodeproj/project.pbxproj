@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B570050F1CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */; };
+		B57005101CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C807E9C71C428B8D003D9E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C807E9C61C428B8D003D9E5B /* AppDelegate.swift */; };
 		C807E9C91C428B8D003D9E5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C807E9C81C428B8D003D9E5B /* ViewController.swift */; };
 		C807E9CC1C428B8D003D9E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CA1C428B8D003D9E5B /* Main.storyboard */; };
 		C807E9CE1C428B8D003D9E5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CD1C428B8D003D9E5B /* Assets.xcassets */; };
 		C807E9D11C428B8D003D9E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CF1C428B8D003D9E5B /* LaunchScreen.storyboard */; };
 		C807E9DE1C428BF9003D9E5B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C807E9DD1C428BF9003D9E5B /* Icon.png */; };
-		C8CA0D211C4538F4001E5B7A /* iOSAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8CA0D1F1C4538E7001E5B7A /* iOSAudioPlayer.framework */; };
-		C8CA0D221C4538F4001E5B7A /* iOSAudioPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8CA0D1F1C4538E7001E5B7A /* iOSAudioPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C8CA0D221C4538F4001E5B7A /* iOSAudioPlayer.framework in Embed Frameworks */,
+				B57005101CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSAudioPlayer.framework; sourceTree = "<group>"; };
 		C807E9C31C428B8D003D9E5B /* DemoAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C807E9C61C428B8D003D9E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C807E9C81C428B8D003D9E5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		C807E9D01C428B8D003D9E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C807E9D21C428B8D003D9E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C807E9DD1C428BF9003D9E5B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		C8CA0D1F1C4538E7001E5B7A /* iOSAudioPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSAudioPlayer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8CA0D211C4538F4001E5B7A /* iOSAudioPlayer.framework in Frameworks */,
+				B570050F1CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 		C807E9BA1C428B8D003D9E5B = {
 			isa = PBXGroup;
 			children = (
-				C8CA0D1F1C4538E7001E5B7A /* iOSAudioPlayer.framework */,
+				B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */,
 				C807E9C51C428B8D003D9E5B /* DemoAudioPlayer */,
 				C807E9C41C428B8D003D9E5B /* Products */,
 			);
