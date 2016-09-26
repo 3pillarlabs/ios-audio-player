@@ -17,73 +17,73 @@ provides-member:
 provides-dynamic-lookup:
 - "prepareAndPlay"
 - "currentPlayingItem"
-- "setupNotifications"
 - "playingStalled"
 - "internalInstance"
-- "sharedInstance"
-- "durationInSeconds"
-- "playPauseMediaFile"
-- "currentTimeInSeconds"
-- "isPlaying"
-- "playerDidReachEnd"
 - "observeValue"
+- "durationInSeconds"
+- "currentTimeInSeconds"
+- "playerDidReachEnd"
 - "playerItemTimeJumpedNotification"
-- "player"
 - "seekPlayerToTime"
+- "isPlaying"
+- "player"
+- "setupNotifications"
+- "playPauseMediaFile"
+- "sharedInstance"
 depends-top-level:
-- !private "NSNumber"
-- !private "AVAudioSession"
-- "kStartTimeZero"
-- "StringLiteralType"
-- "TPGPlayerTimeJumpedNotification"
-- "Void"
-- !private "BooleanLiteralType"
-- "NSNotification"
-- "TPGAudioPlayer"
-- !private "AVURLAssetReferenceRestrictionsKey"
-- !private ">"
-- "String"
-- !private "AVAudioSessionCategoryPlayback"
-- !private "AVPlayerItem"
-- !private "/"
-- !private "Array"
-- "Double"
-- !private "~="
-- !private "DispatchQoS"
-- "NSObject"
-- !private "URL"
-- "TPGPlayerDidReachEndNotification"
-- !private "!"
-- "kLoadedTimeRangesKeyPath"
-- "CastingPrecedence"
-- "AVPlayer"
-- "AssignmentPrecedence"
-- "AVURLAsset"
-- "=="
-- !private "*"
-- "TPGPlayerStalledNotification"
-- !private "Selector"
-- "NSKeyValueChangeKey"
-- !private "DispatchQueue"
-- !private "NSDictionary"
-- !private "UIApplication"
+- "AnyObject"
 - "NSURL"
 - !private "+"
-- !private "!="
-- !private "CMTimeMakeWithSeconds"
-- "SkipDirection"
-- "UnsafeMutableRawPointer"
-- "Bool"
-- !private "&&"
-- !private "print"
-- !private "??"
+- !private "URL"
+- "AVPlayer"
+- !private "*"
+- !private "NSNumber"
+- "StringLiteralType"
 - !private "NotificationCenter"
-- "Dictionary"
-- !private "SpringboardData"
-- !private "kCMTimeZero"
-- "AnyObject"
-- "TPGMediaLoadedStateNotification"
+- "SkipDirection"
+- !private "BooleanLiteralType"
+- "AVURLAsset"
+- "NSNotification"
+- !private "!"
+- !private "&&"
 - !private "==="
+- "String"
+- "TPGMediaLoadedStateNotification"
+- "Dictionary"
+- !private "AVPlayerItem"
+- "kStartTimeZero"
+- "Double"
+- "TPGPlayerTimeJumpedNotification"
+- !private ">"
+- "kLoadedTimeRangesKeyPath"
+- !private "~="
+- !private "print"
+- "CastingPrecedence"
+- "=="
+- "AssignmentPrecedence"
+- !private "DispatchQoS"
+- !private "UIApplication"
+- !private "CMTimeMakeWithSeconds"
+- !private "NSDictionary"
+- !private "Selector"
+- "TPGPlayerDidReachEndNotification"
+- !private "DispatchQueue"
+- !private "SpringboardData"
+- !private "Array"
+- "TPGAudioPlayer"
+- !private "??"
+- !private "kCMTimeZero"
+- !private "/"
+- !private "!="
+- "TPGPlayerStalledNotification"
+- "NSObject"
+- "Bool"
+- "UnsafeMutableRawPointer"
+- !private "AVAudioSessionCategoryPlayback"
+- "Void"
+- "NSKeyValueChangeKey"
+- !private "AVAudioSession"
+- !private "AVURLAssetReferenceRestrictionsKey"
 depends-member:
 - !private ["CSo7AVAsset", "duration"]
 - !private ["CSo7AVAsset", "init"]
@@ -165,6 +165,7 @@ depends-member:
 - !private ["Ps9AnyObject", "rate"]
 - !private ["Ps9AnyObject", "removeObserver"]
 - !private ["Ps9AnyObject", "replaceCurrentItem"]
+- !private ["Ps9AnyObject", "responds"]
 - !private ["Ps9AnyObject", "seek"]
 - ["Ps9AnyObject", "seekPlayerToTime"]
 - !private ["Ps9AnyObject", "setCategory"]
@@ -281,6 +282,7 @@ depends-member:
 - !private ["Ps7CVarArg", "rate"]
 - !private ["Ps7CVarArg", "removeObserver"]
 - !private ["Ps7CVarArg", "replaceCurrentItem"]
+- !private ["Ps7CVarArg", "responds"]
 - !private ["Ps7CVarArg", "seek"]
 - ["Ps7CVarArg", "seekPlayerToTime"]
 - !private ["Ps7CVarArg", "setCategory"]
@@ -375,6 +377,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "rate"]
 - !private ["Ps28CustomDebugStringConvertible", "removeObserver"]
 - !private ["Ps28CustomDebugStringConvertible", "replaceCurrentItem"]
+- !private ["Ps28CustomDebugStringConvertible", "responds"]
 - !private ["Ps28CustomDebugStringConvertible", "seek"]
 - ["Ps28CustomDebugStringConvertible", "seekPlayerToTime"]
 - !private ["Ps28CustomDebugStringConvertible", "setCategory"]
@@ -472,6 +475,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "rate"]
 - !private ["Ps23CustomStringConvertible", "removeObserver"]
 - !private ["Ps23CustomStringConvertible", "replaceCurrentItem"]
+- !private ["Ps23CustomStringConvertible", "responds"]
 - !private ["Ps23CustomStringConvertible", "seek"]
 - ["Ps23CustomStringConvertible", "seekPlayerToTime"]
 - !private ["Ps23CustomStringConvertible", "setCategory"]
@@ -576,6 +580,7 @@ depends-member:
 - ["Ps9Equatable", "rawValue"]
 - !private ["Ps9Equatable", "removeObserver"]
 - !private ["Ps9Equatable", "replaceCurrentItem"]
+- !private ["Ps9Equatable", "responds"]
 - !private ["Ps9Equatable", "seconds"]
 - !private ["Ps9Equatable", "seek"]
 - ["Ps9Equatable", "seekPlayerToTime"]
@@ -681,6 +686,7 @@ depends-member:
 - ["Ps8Hashable", "rawValue"]
 - !private ["Ps8Hashable", "removeObserver"]
 - !private ["Ps8Hashable", "replaceCurrentItem"]
+- !private ["Ps8Hashable", "responds"]
 - !private ["Ps8Hashable", "seek"]
 - ["Ps8Hashable", "seekPlayerToTime"]
 - !private ["Ps8Hashable", "setCategory"]
@@ -830,6 +836,7 @@ depends-member:
 - !private ["CSo8NSObject", "rate"]
 - !private ["CSo8NSObject", "removeObserver"]
 - !private ["CSo8NSObject", "replaceCurrentItem"]
+- !private ["CSo8NSObject", "responds"]
 - !private ["CSo8NSObject", "seek"]
 - ["CSo8NSObject", "seekPlayerToTime"]
 - !private ["CSo8NSObject", "setCategory"]
@@ -893,6 +900,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "rate"]
 - !private ["PSo16NSObjectProtocol", "removeObserver"]
 - !private ["PSo16NSObjectProtocol", "replaceCurrentItem"]
+- !private ["PSo16NSObjectProtocol", "responds"]
 - !private ["PSo16NSObjectProtocol", "seek"]
 - ["PSo16NSObjectProtocol", "seekPlayerToTime"]
 - !private ["PSo16NSObjectProtocol", "setCategory"]
@@ -1063,6 +1071,7 @@ depends-member:
 - ["C14iOSAudioPlayer14TPGAudioPlayer", "playingStalled"]
 - ["C14iOSAudioPlayer14TPGAudioPlayer", "prepareAndPlay"]
 - !private ["C14iOSAudioPlayer14TPGAudioPlayer", "print"]
+- !private ["C14iOSAudioPlayer14TPGAudioPlayer", "responds"]
 - ["C14iOSAudioPlayer14TPGAudioPlayer", "seekPlayerToTime"]
 - ["C14iOSAudioPlayer14TPGAudioPlayer", "setupNotifications"]
 - ["C14iOSAudioPlayer14TPGAudioPlayer", "sharedInstance"]
@@ -1169,6 +1178,7 @@ depends-member:
 - ["Ps9_Hashable", "rawValue"]
 - !private ["Ps9_Hashable", "removeObserver"]
 - !private ["Ps9_Hashable", "replaceCurrentItem"]
+- !private ["Ps9_Hashable", "responds"]
 - !private ["Ps9_Hashable", "seek"]
 - ["Ps9_Hashable", "seekPlayerToTime"]
 - !private ["Ps9_Hashable", "setCategory"]

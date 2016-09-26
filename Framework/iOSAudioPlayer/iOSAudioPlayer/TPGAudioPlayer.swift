@@ -112,7 +112,7 @@ public class TPGAudioPlayer: NSObject {
     public override init() {
         super.init()
 
-     //   self.setupNotifications()
+        self.setupNotifications()
     }
     
     /*
@@ -236,9 +236,17 @@ public class TPGAudioPlayer: NSObject {
     /*************************************/
     
     func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: Selector(("playerDidReachEnd")), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-        NotificationCenter.default.addObserver(self, selector: Selector(("playingStalled")), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: player.currentItem)
-        NotificationCenter.default.addObserver(self, selector: Selector(("playerItemTimeJumpedNotification")), name: NSNotification.Name.AVPlayerItemTimeJumped, object: nil)
+        if self.responds(to: Selector(("playerDidReachEnd:"))) {
+            NotificationCenter.default.addObserver(self, selector: Selector(("playerDidReachEnd:")), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        }
+
+        if self.responds(to: Selector(("playingStalled:"))) {
+            NotificationCenter.default.addObserver(self, selector: Selector(("playingStalled:")), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: player.currentItem)
+        }
+
+        if self.responds(to: Selector(("playerItemTimeJumpedNotification:"))) {
+            NotificationCenter.default.addObserver(self, selector: Selector(("playerItemTimeJumpedNotification:")), name: NSNotification.Name.AVPlayerItemTimeJumped, object: nil)
+        }
     }
     
     func prepareAndPlay(playerAsset: AVURLAsset, startTime: Double, completion: @escaping (() -> Void)) {

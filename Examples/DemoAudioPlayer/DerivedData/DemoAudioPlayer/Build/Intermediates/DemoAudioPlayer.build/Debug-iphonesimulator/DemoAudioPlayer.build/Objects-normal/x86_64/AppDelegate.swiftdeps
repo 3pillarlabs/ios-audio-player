@@ -6,28 +6,28 @@ provides-nominal:
 provides-member:
 - ["C15DemoAudioPlayer11AppDelegate", ""]
 provides-dynamic-lookup:
-- "window"
+- "applicationDidBecomeActive"
+- "applicationWillResignActive"
 - "applicationWillEnterForeground"
+- "applicationDidEnterBackground"
+- "applicationWillTerminate"
 - "application"
 - "remoteControlReceived"
-- "applicationWillTerminate"
-- "applicationWillResignActive"
-- "applicationDidBecomeActive"
-- "applicationDidEnterBackground"
+- "window"
 depends-top-level:
-- "UIApplication"
-- !private "BooleanLiteralType"
 - !private "kTestTimeInterval"
-- "UIEvent"
-- "UIApplicationDelegate"
-- "UIWindow"
-- "UIResponder"
-- "AppDelegate"
-- !private "SkipDirection"
 - !private "TPGAudioPlayer"
 - "Bool"
 - "AssignmentPrecedence"
 - "UIApplicationLaunchOptionsKey"
+- !private "SkipDirection"
+- "UIApplication"
+- "UIApplicationDelegate"
+- "UIWindow"
+- "UIEvent"
+- !private "BooleanLiteralType"
+- "UIResponder"
+- "AppDelegate"
 depends-member:
 - !private ["Ps9AnyObject", "SkipDirection"]
 - !private ["Ps9AnyObject", "TPGAudioPlayer"]

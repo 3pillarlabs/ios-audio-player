@@ -6,13 +6,13 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		xFCg7Gl4mFnO/V3oEPvOe+CDzhk=
+		pbNCbe7WHre7e21fVUzhu/r4FIQ=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z53poXD1TbJJ5+VKP6/+H4w6Oic=
+			9z7Dhv710CYN9JUKlDKTMEDk/9s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -30,7 +30,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cNjgqBx7A5FQ33nydpfHEpRASFs=
+			bTrujCcJjJjTGud4iERa87sYV2s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -39,7 +39,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ioq2VqnOL6NncgVFZ+PdUOtvj4Q=
+			1jtx6csGogRS4X+cN2GI4U4hRGw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -57,7 +57,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3S8vgA5KxJ3zVpP3aKZD5ibel9o=
+			Rrla7U6R2uQ3EhmSTkyvcZ50ev4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -72,7 +72,7 @@
 		</data>
 		<key>Frameworks/iOSAudioPlayer.framework/iOSAudioPlayer</key>
 		<data>
-		lvNjcVqW8nMUPSW0bHjIs9vIaIA=
+		o/WPeTsDncXH737CU6y3nc6iWO0=
 		</data>
 		<key>Frameworks/libswiftAVFoundation.dylib</key>
 		<data>
@@ -149,22 +149,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xFCg7Gl4mFnO/V3oEPvOe+CDzhk=
+			pbNCbe7WHre7e21fVUzhu/r4FIQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			cWiyT8fKVkRuEfqtKj+Ld7wI81vsYDrn/GbvuthwOQE=
+			LyrEeAV95wFkKrLmLydO9eGSvzihe1KYFy2Jjcm4sSE=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z53poXD1TbJJ5+VKP6/+H4w6Oic=
+			9z7Dhv710CYN9JUKlDKTMEDk/9s=
 			</data>
 			<key>hash2</key>
 			<data>
-			VlWAyhZciN8mM1wjh1NxYIMQpoBXgZRg1+tndL7ESdk=
+			h2atuALhv3uila0BhSoWXQo1jIPq81muD3vsyWlkNBU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -186,11 +186,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cNjgqBx7A5FQ33nydpfHEpRASFs=
+			bTrujCcJjJjTGud4iERa87sYV2s=
 			</data>
 			<key>hash2</key>
 			<data>
-			ET5iORLZXA0vFHXf6DIBjWHO7RA1ID9EfDUtduMxgXw=
+			laQFgHiIHgUZeLsImUJOmlmmcPvkXiNWHH8IH3sZ6Lk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -199,11 +199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ioq2VqnOL6NncgVFZ+PdUOtvj4Q=
+			1jtx6csGogRS4X+cN2GI4U4hRGw=
 			</data>
 			<key>hash2</key>
 			<data>
-			1cUhINvyESPDlUSODVPb/2/wn3hFOV1QjE3Vg+kPoVs=
+			BXQbTRBI++KIQgKJzHi95OC6aAfYH6iCGqAeMFzImTw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -225,11 +225,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3S8vgA5KxJ3zVpP3aKZD5ibel9o=
+			Rrla7U6R2uQ3EhmSTkyvcZ50ev4=
 			</data>
 			<key>hash2</key>
 			<data>
-			PskAw/ZfxNN++bxiFRbinVm6NBWpCzEWrlBqwe0b5/g=
+			7NDvjRm6Qasdx2pJ0ayvJOmybFrjbWIRgevwpTtgGvg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -260,11 +260,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lvNjcVqW8nMUPSW0bHjIs9vIaIA=
+			o/WPeTsDncXH737CU6y3nc6iWO0=
 			</data>
 			<key>hash2</key>
 			<data>
-			IjDiDOV8+9oP1LtEhTC+jou4cwXyjB8Jedd6IApMRpk=
+			tPNJ4WPUhMzHqVUy2/vd+AQIgm3LwVTF/ynBhZhpDmI=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftAVFoundation.dylib</key>
