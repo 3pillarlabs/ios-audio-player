@@ -64,15 +64,15 @@
 		</dict>
 		<key>Frameworks/iOSAudioPlayer.framework/Info.plist</key>
 		<data>
-		1JVJ+2kxmAdcXL9t5TuAlm4SzLk=
+		B6DySVf5T6V+rV3z78J6DCqXp+Q=
 		</data>
 		<key>Frameworks/iOSAudioPlayer.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Z75J/eR4t3PFU8xxDCGgEeDNbu4=
+		EQf3Fz3SnFtuVk2cxxjvwHnsuxw=
 		</data>
 		<key>Frameworks/iOSAudioPlayer.framework/iOSAudioPlayer</key>
 		<data>
-		o/WPeTsDncXH737CU6y3nc6iWO0=
+		dHdyKI7dUyPYEsAiGRN3/a6pHzk=
 		</data>
 		<key>Frameworks/libswiftAVFoundation.dylib</key>
 		<data>
@@ -238,33 +238,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1JVJ+2kxmAdcXL9t5TuAlm4SzLk=
+			B6DySVf5T6V+rV3z78J6DCqXp+Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ro7Kddd//zVGLNySOb9rWxaWI/+2TqXx1up0b5EPR/I=
+			6JRSCnGaKausO+ibQzvv90j+aVvtLFKfeWNKlKHqAIM=
 			</data>
 		</dict>
 		<key>Frameworks/iOSAudioPlayer.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Z75J/eR4t3PFU8xxDCGgEeDNbu4=
+			EQf3Fz3SnFtuVk2cxxjvwHnsuxw=
 			</data>
 			<key>hash2</key>
 			<data>
-			K2FxstC4GRRBJWbMTkmY1rdvjzrGSBa1adFuKULyIic=
+			7EPFe3AbFrkVPLH9tBbu3t9f3QJik9JNTorsL6hWVcU=
 			</data>
 		</dict>
 		<key>Frameworks/iOSAudioPlayer.framework/iOSAudioPlayer</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			o/WPeTsDncXH737CU6y3nc6iWO0=
+			dHdyKI7dUyPYEsAiGRN3/a6pHzk=
 			</data>
 			<key>hash2</key>
 			<data>
-			tPNJ4WPUhMzHqVUy2/vd+AQIgm3LwVTF/ynBhZhpDmI=
+			TvdKhdh9pRxWwU9416kTaXBfswKBz/UyZmYdEfstPdw=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftAVFoundation.dylib</key>

@@ -217,17 +217,17 @@ public class TPGAudioPlayer: NSObject {
         // MARK: NOTIFICATION METHODS
     /*************************************/
     
-    func playingStalled(notification: NSNotification) {
+    func playingStalled(_ notification: NSNotification) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerStalledNotification), object: player.currentItem)
     }
     
-    func playerDidReachEnd(notification: NSNotification) {
+    func playerDidReachEnd(_ notification: NSNotification) {
         self.player.seek(to: kCMTimeZero)
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerDidReachEndNotification), object: nil)
     }
     
-    func playerItemTimeJumpedNotification(notification: NSNotification) {
+    func playerItemTimeJumpedNotification(_ notification: NSNotification) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerTimeJumpedNotification), object: NSNumber(value: self.currentTimeInSeconds))
     }
     
@@ -236,17 +236,11 @@ public class TPGAudioPlayer: NSObject {
     /*************************************/
     
     func setupNotifications() {
-        if self.responds(to: Selector(("playerDidReachEnd:"))) {
-            NotificationCenter.default.addObserver(self, selector: Selector(("playerDidReachEnd:")), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(TPGAudioPlayer.playerDidReachEnd(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
 
-        if self.responds(to: Selector(("playingStalled:"))) {
-            NotificationCenter.default.addObserver(self, selector: Selector(("playingStalled:")), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: player.currentItem)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(TPGAudioPlayer.playingStalled(_:)), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: player.currentItem)
 
-        if self.responds(to: Selector(("playerItemTimeJumpedNotification:"))) {
-            NotificationCenter.default.addObserver(self, selector: Selector(("playerItemTimeJumpedNotification:")), name: NSNotification.Name.AVPlayerItemTimeJumped, object: nil)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(TPGAudioPlayer.playerItemTimeJumpedNotification(_:)), name: NSNotification.Name.AVPlayerItemTimeJumped, object: nil)
     }
     
     func prepareAndPlay(playerAsset: AVURLAsset, startTime: Double, completion: @escaping (() -> Void)) {

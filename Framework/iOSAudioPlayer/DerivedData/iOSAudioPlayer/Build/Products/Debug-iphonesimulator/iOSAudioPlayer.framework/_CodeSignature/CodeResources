@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oMa3kdwVsDgE8pi4hw75/dmdAo8=
+		aLTIGMtkr9nXVzlXvPczeIlaH98=
 		</data>
 		<key>Modules/iOSAudioPlayer.swiftmodule/i386.swiftdoc</key>
 		<data>
-		6LLCf2Nr7riLkG4JookqxeS9Lfs=
+		SgPVhg2c3o1sriha/7v8G3hciEw=
 		</data>
 		<key>Modules/iOSAudioPlayer.swiftmodule/i386.swiftmodule</key>
 		<data>
-		0E+B44cmh7JLGX2FBrISmbke5k8=
+		Go+bg+NuaOzybebtgCppnaaYuQw=
 		</data>
 		<key>Modules/iOSAudioPlayer.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		gucFGwxqUh5cMK0JKKFtEpPnXfk=
+		OiZZgirltIluB2N3BpMKrrGgZ/E=
 		</data>
 		<key>Modules/iOSAudioPlayer.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ZLo6ehBMw9d7gQtHnVuf0mz6SNQ=
+		ad/26Q1aXrt1EntOmk3vEn7R6gQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,44 +65,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6LLCf2Nr7riLkG4JookqxeS9Lfs=
+			SgPVhg2c3o1sriha/7v8G3hciEw=
 			</data>
 			<key>hash2</key>
 			<data>
-			x6FO2ukIy32e+vB7X1kxDdQtOfP/TixVDS2pSS9gWs4=
+			seh19xxtQ6oiYQsQoptZ2AKXYO19j17XIVTwiMM180Y=
 			</data>
 		</dict>
 		<key>Modules/iOSAudioPlayer.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0E+B44cmh7JLGX2FBrISmbke5k8=
+			Go+bg+NuaOzybebtgCppnaaYuQw=
 			</data>
 			<key>hash2</key>
 			<data>
-			tiBIrwvXsjO3uhJfu/jfq1kOgNods2ikJELr8IRl6Nc=
+			3ZjoU2xMidkFkqvGaqMWPaTP+ZgVotE37U5PxQiar88=
 			</data>
 		</dict>
 		<key>Modules/iOSAudioPlayer.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gucFGwxqUh5cMK0JKKFtEpPnXfk=
+			OiZZgirltIluB2N3BpMKrrGgZ/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			qEacUAugjAPHLn2kyI7qtYWQufZTA96UA7wLLDwsAyU=
+			n36BWmEOtRUXEFjOySwvsQvol9uPAypjzL58pMPEnds=
 			</data>
 		</dict>
 		<key>Modules/iOSAudioPlayer.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZLo6ehBMw9d7gQtHnVuf0mz6SNQ=
+			ad/26Q1aXrt1EntOmk3vEn7R6gQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			KdXCqv+ysri6+PVuEHwYRWP9CqsDUfafMnx/QOGD10Y=
+			F/mTQgQ6YZ28BQWBqfbgO4GMT/ZKrwJCj7TD6YVJV3I=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
