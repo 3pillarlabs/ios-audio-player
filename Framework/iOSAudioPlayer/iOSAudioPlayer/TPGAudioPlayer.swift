@@ -68,7 +68,7 @@ public class TPGAudioPlayer: NSObject {
                 player.play()
                 
                 if let _ = self.currentPlayingItem {
-                    SpringboardData().updateLockScreenCurrentTime(currentTimeInSeconds)
+                    SpringboardData().updateLockScreenCurrentTime(currentTime: currentTimeInSeconds)
                 }
             } else {
                 player.pause()
@@ -132,37 +132,35 @@ public class TPGAudioPlayer: NSObject {
         the device is in sleep mode is desired to be ignored.
     */
     
-    public func playPauseMediaFile(audioUrl: NSURL, springboardInfo: Dictionary <String, AnyObject>, startTime: Double, completion: (previousItem: String?, stopTime: Double) -> ()) {
+    public func playPauseMediaFile(audioUrl: NSURL, springboardInfo: Dictionary <String, AnyObject>, startTime: Double, completion: @escaping (_ previousItem: String?, _ stopTime: Double) -> ()) {
         
         let stopTime = self.currentTimeInSeconds
         
         if audioUrl.absoluteString == self.currentPlayingItem {
             // Current episode playing
             self.isPlaying = !self.isPlaying
-            completion(previousItem: nil, stopTime: stopTime)
+            completion(nil, stopTime)
 
             return
         }
             
         // Other episode to load
         // Load new episode
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { [unowned self] in
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             let options = [AVURLAssetReferenceRestrictionsKey : 0]
-            let playerAsset = AVURLAsset(URL: audioUrl, options: options)
+            let playerAsset = AVURLAsset(url: audioUrl as URL, options: options)
             self.playerDuration = playerAsset.duration.seconds
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: {
                 //Episode Loaded
-                self.prepareAndPlay(playerAsset, startTime: startTime, completion: { () -> Void in
+                self.prepareAndPlay(playerAsset: playerAsset, startTime: startTime, completion: { () -> Void in
                     //Ready to play
                     let previousPlayingItem = self.currentPlayingItem
                     self.currentPlayingItem = audioUrl.absoluteString
                     
-                    completion(previousItem: previousPlayingItem, stopTime: stopTime)
+                    completion(previousPlayingItem, stopTime)
                     
-                    if let springboardData: Dictionary <String, AnyObject> = springboardInfo {
-                        SpringboardData().setupLockScreenElementsWithDictionary( springboardData )
-                    }
+                    SpringboardData().setupLockScreenElementsWithDictionary( infoDictionary: springboardInfo as NSDictionary )
                 })
             })
         }
@@ -176,8 +174,8 @@ public class TPGAudioPlayer: NSObject {
         let skipPercentage = timeInterval / self.durationInSeconds
         let newTime = CMTimeMakeWithSeconds(offset + ((skipDirection.rawValue * skipPercentage) * 2000.0), 100)
         
-        player.seekToTime(newTime) { (finished) -> Void in
-            SpringboardData().updateLockScreenCurrentTime(self.currentTimeInSeconds)
+        player.seek(to: newTime) { (finished) -> Void in
+            SpringboardData().updateLockScreenCurrentTime(currentTime: self.currentTimeInSeconds)
         }
     }
     
@@ -188,9 +186,9 @@ public class TPGAudioPlayer: NSObject {
     public func seekPlayerToTime(value: Double, completion: (() -> Void)!) {
         let newTime = CMTimeMakeWithSeconds(value, 100)
         
-        player.seekToTime(newTime, completionHandler: { (finished) -> Void in
+        player.seek(to: newTime, completionHandler: { (finished) -> Void in
             if completion != nil {
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
                     completion()
                 })
             }
@@ -201,15 +199,15 @@ public class TPGAudioPlayer: NSObject {
         Method used for showing the buffer bar (i.e. amount of the playable file that's been loaded)
     */
     
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+   override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == kLoadedTimeRangesKeyPath && object as? AVPlayerItem === self.player.currentItem {
-            if let timeRanges = change?[NSKeyValueChangeNewKey] as? Array<AnyObject> {
+            if let timeRanges = change?[NSKeyValueChangeKey.newKey] as? Array<AnyObject> {
                 if timeRanges.count > 0 {
-                    let timeRange = timeRanges[0].CMTimeRangeValue
-                    let loadedAmout = timeRange.start.seconds + timeRange.duration.seconds
+                    let timeRange = timeRanges[0].timeRangeValue
+                    let loadedAmout = (timeRange?.start.seconds)! + (timeRange?.duration.seconds)!
                     let loadedPercentage = (loadedAmout * 100.0) / self.durationInSeconds
                     
-                    NSNotificationCenter.defaultCenter().postNotificationName(TPGMediaLoadedStateNotification, object: NSNumber(double: loadedPercentage))
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGMediaLoadedStateNotification), object: NSNumber(value: loadedPercentage))
                 }
             }
         }
@@ -219,18 +217,18 @@ public class TPGAudioPlayer: NSObject {
         // MARK: NOTIFICATION METHODS
     /*************************************/
     
-    func playingStalled(notification: NSNotification) {
-        NSNotificationCenter.defaultCenter().postNotificationName(TPGPlayerStalledNotification, object: player.currentItem)
+    func playingStalled(_ notification: NSNotification) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerStalledNotification), object: player.currentItem)
     }
     
-    func playerDidReachEnd(notification: NSNotification) {
-        self.player.seekToTime(kCMTimeZero)
+    func playerDidReachEnd(_ notification: NSNotification) {
+        self.player.seek(to: kCMTimeZero)
         
-        NSNotificationCenter.defaultCenter().postNotificationName(TPGPlayerDidReachEndNotification, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerDidReachEndNotification), object: nil)
     }
     
-    func playerItenTimeJumpedNotification(notification: NSNotification) {
-        NSNotificationCenter.defaultCenter().postNotificationName(TPGPlayerTimeJumpedNotification, object: NSNumber(double: self.currentTimeInSeconds))
+    func playerItemTimeJumpedNotification(_ notification: NSNotification) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerTimeJumpedNotification), object: NSNumber(value: self.currentTimeInSeconds))
     }
     
     /*************************************/
@@ -238,15 +236,17 @@ public class TPGAudioPlayer: NSObject {
     /*************************************/
     
     func setupNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerDidReachEnd:", name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playingStalled:", name: AVPlayerItemPlaybackStalledNotification, object: player.currentItem)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerItenTimeJumpedNotification:", name: AVPlayerItemTimeJumpedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TPGAudioPlayer.playerDidReachEnd(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(TPGAudioPlayer.playingStalled(_:)), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: player.currentItem)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(TPGAudioPlayer.playerItemTimeJumpedNotification(_:)), name: NSNotification.Name.AVPlayerItemTimeJumped, object: nil)
     }
     
-    func prepareAndPlay(playerAsset: AVURLAsset, startTime: Double, completion: (() -> Void)) {
+    func prepareAndPlay(playerAsset: AVURLAsset, startTime: Double, completion: @escaping (() -> Void)) {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+            UIApplication.shared.beginReceivingRemoteControlEvents()
         } catch {
             // Code to be added in case of audio session setup error
             print(error)
@@ -262,14 +262,14 @@ public class TPGAudioPlayer: NSObject {
         let newPlayerItem = AVPlayerItem(asset: playerAsset)
         
         //replace current item with new player item
-        self.player.replaceCurrentItemWithPlayerItem(newPlayerItem)
+        self.player.replaceCurrentItem(with: newPlayerItem)
         
         if let _ = self.player.currentItem {
-            self.player.currentItem!.addObserver(self, forKeyPath: kLoadedTimeRangesKeyPath, options: .New, context: nil)
+            self.player.currentItem!.addObserver(self, forKeyPath: kLoadedTimeRangesKeyPath, options: .new, context: nil)
         }
         
         //seek player to offset
-        self.seekPlayerToTime(startTime, completion: { [unowned self] in
+        self.seekPlayerToTime(value: startTime, completion: { [unowned self] in
             self.player.play()
             
             completion()

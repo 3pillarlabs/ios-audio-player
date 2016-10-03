@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B570050F1CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */; };
-		B57005101CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C807E9C71C428B8D003D9E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C807E9C61C428B8D003D9E5B /* AppDelegate.swift */; };
 		C807E9C91C428B8D003D9E5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C807E9C81C428B8D003D9E5B /* ViewController.swift */; };
 		C807E9CC1C428B8D003D9E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CA1C428B8D003D9E5B /* Main.storyboard */; };
 		C807E9CE1C428B8D003D9E5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CD1C428B8D003D9E5B /* Assets.xcassets */; };
 		C807E9D11C428B8D003D9E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CF1C428B8D003D9E5B /* LaunchScreen.storyboard */; };
 		C807E9DE1C428BF9003D9E5B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C807E9DD1C428BF9003D9E5B /* Icon.png */; };
+		C819DF131D99C6AF000C168E /* iOSAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */; };
+		C819DF141D99C6AF000C168E /* iOSAudioPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B57005101CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Embed Frameworks */,
+				C819DF141D99C6AF000C168E /* iOSAudioPlayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,7 +32,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSAudioPlayer.framework; sourceTree = "<group>"; };
 		C807E9C31C428B8D003D9E5B /* DemoAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C807E9C61C428B8D003D9E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C807E9C81C428B8D003D9E5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		C807E9D01C428B8D003D9E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C807E9D21C428B8D003D9E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C807E9DD1C428BF9003D9E5B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSAudioPlayer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B570050F1CF6EC5A00E0C97A /* iOSAudioPlayer.framework in Frameworks */,
+				C819DF131D99C6AF000C168E /* iOSAudioPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 		C807E9BA1C428B8D003D9E5B = {
 			isa = PBXGroup;
 			children = (
-				B570050E1CF6EC5A00E0C97A /* iOSAudioPlayer.framework */,
+				C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */,
 				C807E9C51C428B8D003D9E5B /* DemoAudioPlayer */,
 				C807E9C41C428B8D003D9E5B /* Products */,
 			);
@@ -114,11 +114,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "3Pillar Global";
 				TargetAttributes = {
 					C807E9C21C428B8D003D9E5B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U72SPX5AGJ;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -199,8 +201,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -222,7 +226,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -244,8 +248,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -261,9 +267,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -272,22 +279,28 @@
 		C807E9D61C428B8D003D9E5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U72SPX5AGJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DemoAudioPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.3pillarglobal.iosaudioplayer.DemoAudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		C807E9D71C428B8D003D9E5B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U72SPX5AGJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -296,6 +309,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3pillarglobal.iosaudioplayer.DemoAudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

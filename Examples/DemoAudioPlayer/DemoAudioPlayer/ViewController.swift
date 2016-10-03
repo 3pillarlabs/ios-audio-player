@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    var sliderTimer: NSTimer?
+    var sliderTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +34,16 @@ class ViewController: UIViewController {
         self.hideLoadingIndicator()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear( animated )
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "episodeLoadedNotification:", name: TPGMediaLoadedStateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.episodeLoadedNotification(_:)), name: NSNotification.Name(rawValue: TPGMediaLoadedStateNotification), object: nil)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().removeObserver( self )
+        NotificationCenter.default.removeObserver( self )
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,20 +53,20 @@ class ViewController: UIViewController {
     
     // MARK: Notifications
     
-    func episodeLoadedNotification(notification: NSNotification) {
+    func episodeLoadedNotification(_ notification: Notification) {
         if let percentage: NSNumber = notification.object as? NSNumber {
-            self.statusLabel.text = "\(percentage.integerValue)% Loaded"
+            self.statusLabel.text = "\(percentage.intValue)% Loaded"
         }
     }
 
     
     // MARK: Actions
 
-    @IBAction func playButtonPressed(sender: AnyObject) {
+    @IBAction func playButtonPressed(_ sender: AnyObject) {
         /*
         Create the dictionary for springboard information
         */
-        let dictionary: Dictionary <String, AnyObject> = SpringboardData.springboardDictionary("Demo Album", artist: "Demo Artist", duration: Int (300.0), listScreenTitle: "Demo List Screen Title", imagePath: NSBundle.mainBundle().pathForResource(kTestImage, ofType: "png")!)
+        let dictionary: Dictionary <String, AnyObject> = SpringboardData.springboardDictionary(title: "Demo Album", artist: "Demo Artist", duration: Int (300.0), listScreenTitle: "Demo List Screen Title", imagePath: Bundle.main.path(forResource: kTestImage, ofType: "png")!)
         
         /*
         Start Player
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         
         self.showLoadingIndicator()
         
-        TPGAudioPlayer.sharedInstance().playPauseMediaFile(NSURL(string: kTestLink)!, springboardInfo: dictionary, startTime: 0.0, completion: {(_ , stopTime) -> () in
+        TPGAudioPlayer.sharedInstance().playPauseMediaFile(audioUrl: URL(string: kTestLink)! as NSURL, springboardInfo: dictionary, startTime: 0.0, completion: {(_ , stopTime) -> () in
             
             self.hideLoadingIndicator()
             self.setupSlider()
@@ -82,17 +82,17 @@ class ViewController: UIViewController {
         } )
     }
     
-    @IBAction func rewindButtonPressed(sender: AnyObject) {
-        TPGAudioPlayer.sharedInstance().skipDirection(SkipDirection.Backward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
+    @IBAction func rewindButtonPressed(_ sender: AnyObject) {
+        TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.Backward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
     }
     
-    @IBAction func fastforwardButtonPressed(sender: AnyObject) {
-        TPGAudioPlayer.sharedInstance().skipDirection(SkipDirection.Forward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
+    @IBAction func fastforwardButtonPressed(_ sender: AnyObject) {
+        TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.Forward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
     }
     
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         if TPGAudioPlayer.sharedInstance().isPlaying {
-            TPGAudioPlayer.sharedInstance().seekPlayerToTime(Double( sender.value ), completion: {() -> () in
+            TPGAudioPlayer.sharedInstance().seekPlayerToTime(value: Double( sender.value ), completion: {() -> () in
                 self.updatePlayButton()
             })
         }
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
     func updatePlayButton() {
         let playPauseImage = (TPGAudioPlayer.sharedInstance().isPlaying ? UIImage(named: "pause") : UIImage(named: "play"))
         
-        self.playButton.setImage(playPauseImage, forState: .Normal)
+        self.playButton.setImage(playPauseImage, for: UIControlState())
     }
     
     func setupSlider() {
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
             self.sliderTimer?.invalidate()
         }
         
-        self.sliderTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "sliderTimerTriggered", userInfo: nil, repeats: true)
+        self.sliderTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.sliderTimerTriggered), userInfo: nil, repeats: true)
 
         self.setupTotalTimeLabel()
     }
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
         self.updateCurrentTimeLabel(Float( playerCurrentTime ))
     }
     
-    func updateCurrentTimeLabel(currentTimeInSeconds: Float) {
+    func updateCurrentTimeLabel(_ currentTimeInSeconds: Float) {
         if currentTimeInSeconds.isNaN || currentTimeInSeconds.isInfinite {
             return
         }
@@ -144,20 +144,20 @@ class ViewController: UIViewController {
     }
     
     func showLoadingIndicator() {
-        self.playButton.hidden = true
-        self.loadingIndicator.hidden = false
+        self.playButton.isHidden = true
+        self.loadingIndicator.isHidden = false
         
         self.loadingIndicator.startAnimating()
     }
     
     func hideLoadingIndicator() {
-        self.playButton.hidden = false
-        self.loadingIndicator.hidden = true
+        self.playButton.isHidden = false
+        self.loadingIndicator.isHidden = true
         
         self.loadingIndicator.stopAnimating()
     }
     
-    func timeLabelString(duration: Int) -> String {
+    func timeLabelString(_ duration: Int) -> String {
         let currentMinutes = Int(duration) / 60
         let currentSeconds = Int(duration) % 60
         

@@ -31,15 +31,15 @@ public class SpringboardData {
         }
         
         let nowPlayingInfo = [
-            MPMediaItemPropertyTitle: unwrapString( infoDictionary[kTitleKey] as? String),
-            MPMediaItemPropertyArtist: unwrapString( infoDictionary[kAuthorKey] as? String),
+            MPMediaItemPropertyTitle: unwrapString( string: infoDictionary[kTitleKey] as? String),
+            MPMediaItemPropertyArtist: unwrapString( string: infoDictionary[kAuthorKey] as? String),
             MPMediaItemPropertyPlaybackDuration: infoDictionary[kDurationKey] as! NSNumber,
-            MPMediaItemPropertyPodcastTitle: unwrapString( infoDictionary[kListScreenTitleKey] as? String)
-        ]
+            MPMediaItemPropertyPodcastTitle: unwrapString( string: infoDictionary[kListScreenTitleKey] as? String)
+        ] as [String : Any]
         
-        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = nowPlayingInfo
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         
-        self.updateLockScreenImage( unwrapString( infoDictionary[kImagePathKey] as? String) )
+        self.updateLockScreenImage( imagePath: unwrapString( string: infoDictionary[kImagePathKey] as? String) )
     }
     
     /*
@@ -47,24 +47,31 @@ public class SpringboardData {
     */
     
     public class func springboardDictionary( title: String, artist: String, duration: Int, listScreenTitle: String, imagePath: String) -> Dictionary <String, AnyObject> {
-        return Dictionary <String,  AnyObject> (dictionaryLiteral: (kTitleKey, title), (kAuthorKey, artist), (kDurationKey, NSNumber(integer: duration)), (kImagePathKey, imagePath))
+            var dictionary = Dictionary <String,  AnyObject>()
+        
+            dictionary[kTitleKey] = title as AnyObject?
+            dictionary[kAuthorKey] = artist as AnyObject?
+            dictionary[kDurationKey] = NSNumber(value: duration)
+            dictionary[kImagePathKey] = imagePath as AnyObject?
+
+        return dictionary
     }
     
     public func updateLockScreenCurrentTime(currentTime: Double) {
-        if var nowPlayingInfo = MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo {
-            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(double: currentTime)
-            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = nowPlayingInfo
+        if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo {
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: currentTime)
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
     }
     
     private func updateLockScreenImage(imagePath: String) {
-        if var nowPlayingInfo = MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+        if var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo {
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 let image = UIImage(contentsOfFile: imagePath)
                 nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image!)
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = nowPlayingInfo
+                DispatchQueue.main.async(execute: {
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
                 })
             }
         }

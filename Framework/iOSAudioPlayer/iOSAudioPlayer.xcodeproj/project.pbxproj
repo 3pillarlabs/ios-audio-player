@@ -102,6 +102,7 @@
 				TargetAttributes = {
 					C807E9561C3FA0D8003D9E5B = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -269,6 +270,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -291,6 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3pillarglobal.iosaudioplayer.iOSAudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
