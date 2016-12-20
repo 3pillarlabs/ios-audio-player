@@ -1,0 +1,6 @@
+framework module iOSAudioPlayer {
+  umbrella header "iOSAudioPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "iOSAudioPlayer",
+  "version": "0.1.0",
+  "summary": "A short description of iOSAudioPlayer.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/iOSAudioPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "gabrieldusa": "gabriel.dusa@3pillarglobal.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/iOSAudioPlayer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "iOSAudioPlayer/Classes/**/*"
+}

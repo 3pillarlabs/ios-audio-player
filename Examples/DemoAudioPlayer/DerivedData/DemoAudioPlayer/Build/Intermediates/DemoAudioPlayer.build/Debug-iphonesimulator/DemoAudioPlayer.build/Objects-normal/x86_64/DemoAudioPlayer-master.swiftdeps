@@ -1,6 +1,0 @@
-version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
-options: "dac733c35100e35b2c30225b7f2cd297"
-build_time: [528380717, 889423000]
-inputs:
-  "/Users/tudor.stanean/Development/LabsDevelopment/iOS-AudioPlayer-Github/Examples/DemoAudioPlayer/DemoAudioPlayer/ViewController.swift": [528239360, 0]
-  "/Users/tudor.stanean/Development/LabsDevelopment/iOS-AudioPlayer-Github/Examples/DemoAudioPlayer/DemoAudioPlayer/AppDelegate.swift": [528201246, 0]

@@ -1,0 +1,16 @@
+PODS:
+  - iOSAudioPlayer (0.1.0)
+
+DEPENDENCIES:
+  - iOSAudioPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  iOSAudioPlayer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  iOSAudioPlayer: 2bf2345ad61f9a90e0e24177d399b3a95c84c742
+
+PODFILE CHECKSUM: f2e9c85ad8bc5d81fb6c190099a4fd07d0ba005a
+
+COCOAPODS: 1.2.0.beta.1
