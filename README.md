@@ -57,7 +57,7 @@ $ pod install
 ```
 
 Inside your code, in the file where you want to use the iOSAudioPlayer classes, add the following import statement:
-```ruby
+```swift
 import iOSAudioPlayer
 ```
 
