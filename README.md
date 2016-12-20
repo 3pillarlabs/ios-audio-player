@@ -1,4 +1,4 @@
-# iOSAudioPlayer
+# iOS Audio Player
 
 iOSAudioPlayer is a Swift based iOS module that provides player control features. This module represents a wrapper over AVPlayer.
 
@@ -72,28 +72,28 @@ If you prefer to rock it old-school, iOSAudioPlayer can be integrated by adding 
 ---
 
 #Usage
-1. Use shared instance of TPGAudioPlayer class, by calling TPGAudioPlayer.sharedInstance().
-2. Play a certain media file by calling method:
+- Use shared instance of TPGAudioPlayer class, by calling TPGAudioPlayer.sharedInstance().
+- Play a certain media file by calling method:
 ```swift
 public func playPauseMediaFile(audioUrl: NSURL, springboardInfo: [String : AnyObject], startTime: Double, completion: (previousItem: String?, stopTime: Double) -> ())
 ```
-3. Skip a certain time interval using method:
+- Skip a certain time interval using method:
 ```swift
 public func skipDirection(skipDirection: iOSAudioPlayer.SkipDirection, timeInterval: Double, offset: Double)
 ```
-4. Seek the player to a certain offset:
+- Seek the player to a certain offset:
 ```swift
 public func seekPlayerToTime(value: Double, completion: (() -> Void)!)
 ```
-5. Check the duration of the current player item:
+- Check the duration of the current player item:
 ```swift
 public var durationInSeconds: Double { get }
 ```
-6. Check current progress of the player on the current player item:
+- Check current progress of the player on the current player item:
 ```swift
 public var currentTimeInSeconds: Double { get }
 ```
-7. Listen to the notification which is triggered when a certain media file package is loaded:
+- Listen to the notification which is triggered when a certain media file package is loaded:
 ```swift
 public let TPGMediaLoadedStateNotification: String
 ```
