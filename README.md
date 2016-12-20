@@ -57,7 +57,7 @@ $ pod install
 ```
 
 Inside your code, in the file where you want to use the iOSAudioPlayer classes, add the following import statement:
-`import iOSAudioPlayer`
+* 		import iOSAudioPlayer
 
 ### Manually
 
@@ -72,17 +72,17 @@ If you prefer to rock it old-school, iOSAudioPlayer can be integrated by adding 
 #Usage
 1. Use shared instance of TPGAudioPlayer class, by calling TPGAudioPlayer.sharedInstance().
 2. Play a certain media file by calling method:
-`public func playPauseMediaFile(audioUrl: NSURL, springboardInfo: [String : AnyObject], startTime: Double, completion: (previousItem: String?, stopTime: Double) -> ()) `
+* 		public func playPauseMediaFile(audioUrl: NSURL, springboardInfo: [String : AnyObject], startTime: Double, completion: (previousItem: String?, stopTime: Double) -> ())
 3. Skip a certain time interval using method:
-`public func skipDirection(skipDirection: iOSAudioPlayer.SkipDirection, timeInterval: Double, offset: Double)`
+* 		public func skipDirection(skipDirection: iOSAudioPlayer.SkipDirection, timeInterval: Double, offset: Double)
 4. Seek the player to a certain offset:
-`public func seekPlayerToTime(value: Double, completion: (() -> Void)!)`
+* 		public func seekPlayerToTime(value: Double, completion: (() -> Void)!)
 5. Check the duration of the current player item:
-`public var durationInSeconds: Double { get }`
+* 		public var durationInSeconds: Double { get }
 6. Check current progress of the player on the current player item:
-`public var currentTimeInSeconds: Double { get }`
+* 		public var currentTimeInSeconds: Double { get }
 7. Listen to the notification which is triggered when a certain media file package is loaded:
-`public let TPGMediaLoadedStateNotification: String`
+* 		public let TPGMediaLoadedStateNotification: String
 In the "Example for iOSAudioPlayer" project you're able to see how the framework is used.
 
 ## About this project
