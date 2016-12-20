@@ -38,22 +38,44 @@ Install the latest version of CocoaPods with the following command:
 $ gem install cocoapods
 ```
 
-To integrate iOSAudioPlayer into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate iOSAudioPlayer into your Xcode project that does not have CocoaPods integrated, you need to run in your project's folder the command:
+```bash
+$ pod init
+```
+This will create a new file called `Podfile`.
 
+After this you need to add a new entry in your target's pods specifications.
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
+pod 'iOSAudioPlayer'
+```
+Once this is done, in your `Podfile` you should have something like this:
+```ruby
 platform :ios, '8.0'
 use_frameworks!
 
-target 'targetName' do
+target 'yourTargetName' do
+    pod 'iOSAudioPlayer'
+end
+```
+
+To integrate iOSAudioPlayer into your Xcode project that already has CocoaPods integrated, just add in your `Podfile`:
+```ruby
+pod 'iOSAudioPlayer'
+```
+Once this is done, in your `Podfile` you should have something like this:
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+
+target 'yourTargetName' do
+    // other pods
     pod 'iOSAudioPlayer'
 end
 ```
 
 Then, run the following command:
-
 ```bash
-$ pod install
+$ pod update
 ```
 
 Inside your code, in the file where you want to use the iOSAudioPlayer classes, add the following import statement:
