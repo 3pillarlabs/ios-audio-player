@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  iOSAudioPlayer
 //
-//  Created by Gabriel Dusa on 12/19/2016.
+//  Created by 3Pillar Global on 12/19/2016.
 //  Copyright (c) 2016 3Pillar Global. All rights reserved.
 //
 
