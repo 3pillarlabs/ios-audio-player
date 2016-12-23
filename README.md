@@ -21,12 +21,6 @@ The purpose of the framework is to provide a simple in app solution for player c
 - iOS 8.0+
 - Xcode 8.2+
 
-## Communication
-
-- If you **found a bug**, open an issue [github](https://github.com/3pillarlabs/ios-audio-player/issues/new).
-- If you **have a feature request**, open an issue [github](https://github.com/3pillarlabs/ios-audio-player/issues/new).
-- If you **want to contribute**, submit a pull request [github](https://github.com/3pillarlabs/ios-audio-player/compare).
-
 ## Installation
 ### CocoaPods
 
@@ -121,6 +115,11 @@ public let TPGMediaLoadedStateNotification: String
 ```
 In the "Example for iOSAudioPlayer" project you're able to see how the framework is used.
 
+## Communication
+
+- If you **found a bug**, open an issue [github](https://github.com/3pillarlabs/ios-audio-player/issues/new).
+- If you **have a feature request**, open an issue [github](https://github.com/3pillarlabs/ios-audio-player/issues/new).
+- If you **want to contribute**, submit a pull request [github](https://github.com/3pillarlabs/ios-audio-player/compare).
 
 ## About this project
 
@@ -130,4 +129,4 @@ In the "Example for iOSAudioPlayer" project you're able to see how the framework
 
 ## License
 
-iOSAudioPlayer is available under the MIT license. See the LICENSE file for more info.
+iOSAudioPlayer is available under the MIT license. See the [LICENSE](LICENCE) file for more info.
