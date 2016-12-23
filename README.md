@@ -129,4 +129,4 @@ In the "Example for iOSAudioPlayer" project you're able to see how the framework
 
 ## License
 
-iOSAudioPlayer is available under the MIT license. See the [LICENSE](LICENCE) file for more info.
+iOSAudioPlayer is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
