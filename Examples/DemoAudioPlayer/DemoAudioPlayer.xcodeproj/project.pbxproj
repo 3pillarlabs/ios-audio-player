@@ -13,9 +13,26 @@
 		C807E9CE1C428B8D003D9E5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CD1C428B8D003D9E5B /* Assets.xcassets */; };
 		C807E9D11C428B8D003D9E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C807E9CF1C428B8D003D9E5B /* LaunchScreen.storyboard */; };
 		C807E9DE1C428BF9003D9E5B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C807E9DD1C428BF9003D9E5B /* Icon.png */; };
-		C819DF131D99C6AF000C168E /* iOSAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */; };
-		C819DF141D99C6AF000C168E /* iOSAudioPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F178E5AF1E1277B30023560E /* iOSAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B589801E12773700CDDF0C /* iOSAudioPlayer.framework */; };
+		F178E5B01E1277B30023560E /* iOSAudioPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1B589801E12773700CDDF0C /* iOSAudioPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F178E5B11E1277B30023560E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1B5897B1E12773600CDDF0C /* iOSAudioPlayer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C807E9561C3FA0D8003D9E5B;
+			remoteInfo = iOSAudioPlayer;
+		};
+		F1B5897F1E12773700CDDF0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1B5897B1E12773600CDDF0C /* iOSAudioPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C807E9571C3FA0D8003D9E5B;
+			remoteInfo = iOSAudioPlayer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C807E9DC1C428BC7003D9E5B /* Embed Frameworks */ = {
@@ -24,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C819DF141D99C6AF000C168E /* iOSAudioPlayer.framework in Embed Frameworks */,
+				F178E5B01E1277B30023560E /* iOSAudioPlayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,7 +57,7 @@
 		C807E9D01C428B8D003D9E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C807E9D21C428B8D003D9E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C807E9DD1C428BF9003D9E5B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iOSAudioPlayer.framework; sourceTree = "<group>"; };
+		F1B5897B1E12773600CDDF0C /* iOSAudioPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSAudioPlayer.xcodeproj; path = ../../iOSAudioPlayer/iOSAudioPlayer.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C819DF131D99C6AF000C168E /* iOSAudioPlayer.framework in Frameworks */,
+				F178E5AF1E1277B30023560E /* iOSAudioPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +75,7 @@
 		C807E9BA1C428B8D003D9E5B = {
 			isa = PBXGroup;
 			children = (
-				C819DF111D99C6A6000C168E /* iOSAudioPlayer.framework */,
+				F1B5897B1E12773600CDDF0C /* iOSAudioPlayer.xcodeproj */,
 				C807E9C51C428B8D003D9E5B /* DemoAudioPlayer */,
 				C807E9C41C428B8D003D9E5B /* Products */,
 			);
@@ -86,6 +103,14 @@
 			path = DemoAudioPlayer;
 			sourceTree = "<group>";
 		};
+		F1B5897C1E12773600CDDF0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1B589801E12773700CDDF0C /* iOSAudioPlayer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,6 +126,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F178E5B21E1277B30023560E /* PBXTargetDependency */,
 			);
 			name = DemoAudioPlayer;
 			productName = DemoAudioPlayer;
@@ -135,12 +161,28 @@
 			mainGroup = C807E9BA1C428B8D003D9E5B;
 			productRefGroup = C807E9C41C428B8D003D9E5B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F1B5897C1E12773600CDDF0C /* Products */;
+					ProjectRef = F1B5897B1E12773600CDDF0C /* iOSAudioPlayer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C807E9C21C428B8D003D9E5B /* DemoAudioPlayer */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F1B589801E12773700CDDF0C /* iOSAudioPlayer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = iOSAudioPlayer.framework;
+			remoteRef = F1B5897F1E12773700CDDF0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C807E9C11C428B8D003D9E5B /* Resources */ = {
@@ -167,6 +209,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F178E5B21E1277B30023560E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOSAudioPlayer;
+			targetProxy = F178E5B11E1277B30023560E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C807E9CA1C428B8D003D9E5B /* Main.storyboard */ = {
