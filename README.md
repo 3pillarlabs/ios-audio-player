@@ -92,10 +92,10 @@ $ git init
 - Add iOSAudioPlayer as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
 
 ```bash
-$ git submodule add hhttps://github.com/3pillarlabs/ios-audio-player.git
+$ git submodule add https://github.com/3pillarlabs/ios-audio-player.git
 ```
 
-- Open the new `iOSAudioPlayer` folder, and drag the `iOSAudioPlayer.xcodeproj` into the Project Navigator of your application's Xcode project.
+- Open the new `ios-audio-player` folder. Here open the `iOSAudioPlayer` folder and drag the `iOSAudioPlayer.xcodeproj` into the Project Navigator of your application's Xcode project.
 
 > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
 
