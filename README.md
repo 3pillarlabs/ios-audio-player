@@ -145,7 +145,7 @@ public var currentTimeInSeconds: Double { get }
 ```swift
 public let TPGMediaLoadedStateNotification: String
 ```
-In the "Example for iOSAudioPlayer" project you're able to see how the framework is used.
+In the `Examples` folder there is the sample project `DemoAudioPlayer` where you can see how the framework is used.
 
 ## Communication
 
