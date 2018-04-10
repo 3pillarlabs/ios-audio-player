@@ -80,7 +80,6 @@
 				C807E9531C3FA0D8003D9E5B /* Frameworks */,
 				C807E9541C3FA0D8003D9E5B /* Headers */,
 				C807E9551C3FA0D8003D9E5B /* Resources */,
-				C884E8831C44E00600DDEA2A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -97,12 +96,12 @@
 		C807E94E1C3FA0D8003D9E5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "3Pillar Global";
 				TargetAttributes = {
 					C807E9561C3FA0D8003D9E5B = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -133,22 +132,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C884E8831C44E00600DDEA2A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script is based on Jacob Van Order's answer on apple dev forums https://devforums.apple.com/message/971277\n# See also http://spin.atomicobject.com/2011/12/13/building-a-universal-framework-for-ios/ for the start\n# To get this to work with a Xcode 6 or later Cocoa Touch Framework, create Framework (or additionally an Aggregate Target)\n# Then add this script into a Build Script Phase\n\nif [ \"false\" == ${ALREADYINVOKED:-false} ]; then\nexport ALREADYINVOKED=\"true\"\n\n### Options ###\nSIMULATOR_FRAMEWORK_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework\"\nIOS_FRAMEWORK_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\"\nUNIVERSAL_FRAMEWORK_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nUNIVERSAL_FRAMEWORK_PATH=\"${UNIVERSAL_FRAMEWORK_DIR}/${PROJECT_NAME}.framework\"\n\n### Build Frameworks ###\n# build for iphonesimulator\n# default VALID_ARCHS=\"arm64 armv7 armv7s\" but it is required to force it to \"i386 x86_64\"\n# xcodebuild -target ${PROJECT_NAME} ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" VALID_ARCHS=\"i386 x86_64\" clean build\n\nxcodebuild -UseSanitizedBuildSystemEnvironment=YES -project ${PROJECT_NAME}.xcodeproj -scheme ${PROJECT_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} -destination 'platform=iOS Simulator,name=iPad' clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\n### Create directory for universal ###\nrm -rf \"${UNIVERSAL_FRAMEWORK_DIR}\"\nmkdir \"${UNIVERSAL_FRAMEWORK_DIR}\"\nif [ ! -d \"${UNIVERSAL_FRAMEWORK_DIR}\" ]; then # check that universal framework directory is created\nexit 1\nfi\n\n### Copy files Framework ###\ncp -r \"${IOS_FRAMEWORK_PATH}\" \"${UNIVERSAL_FRAMEWORK_PATH}\"\n\n### Make fat universal binary ###\nlipo \"${SIMULATOR_FRAMEWORK_PATH}/${PROJECT_NAME}\" \"${IOS_FRAMEWORK_PATH}/${PROJECT_NAME}\" -create -output \"${UNIVERSAL_FRAMEWORK_PATH}/${PROJECT_NAME}\"\n\n### If framework was written in Swift, we need to copy .swiftmodule files ###\nSIMULATOR_SWIFT_MODULES_DIR=\"${SIMULATOR_FRAMEWORK_PATH}/Modules/${PROJECT_NAME}.swiftmodule/.\"\nUNIVERSAL_SWIFT_MODULES_DIR=\"${UNIVERSAL_FRAMEWORK_PATH}/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -r \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_SWIFT_MODULES_DIR}\"\nfi\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		C807E9521C3FA0D8003D9E5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -170,13 +153,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -218,13 +209,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -244,6 +243,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -257,6 +257,7 @@
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -270,7 +271,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -280,7 +282,7 @@
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -293,7 +295,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3pillarglobal.iosaudioplayer.iOSAudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

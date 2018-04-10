@@ -20,13 +20,13 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>NSPrincipalClass</key>
-	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPrincipalClass</key>
+	<string></string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

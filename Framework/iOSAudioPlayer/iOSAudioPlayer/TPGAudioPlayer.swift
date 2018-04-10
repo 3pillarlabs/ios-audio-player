@@ -217,17 +217,17 @@ public class TPGAudioPlayer: NSObject {
         // MARK: NOTIFICATION METHODS
     /*************************************/
     
-    func playingStalled(_ notification: NSNotification) {
+    @objc func playingStalled(_ notification: NSNotification) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerStalledNotification), object: player.currentItem)
     }
     
-    func playerDidReachEnd(_ notification: NSNotification) {
+    @objc func playerDidReachEnd(_ notification: NSNotification) {
         self.player.seek(to: kCMTimeZero)
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerDidReachEndNotification), object: nil)
     }
     
-    func playerItemTimeJumpedNotification(_ notification: NSNotification) {
+    @objc func playerItemTimeJumpedNotification(_ notification: NSNotification) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TPGPlayerTimeJumpedNotification), object: NSNumber(value: self.currentTimeInSeconds))
     }
     
