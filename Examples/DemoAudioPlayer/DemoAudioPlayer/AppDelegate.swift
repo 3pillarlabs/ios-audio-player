@@ -32,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .remoteControlPause:
             TPGAudioPlayer.sharedInstance().isPlaying = false
         case .remoteControlNextTrack:
-            TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.Forward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
+            TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.forward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
         case .remoteControlPreviousTrack:
-            TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.Backward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
+            TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.backward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
             
         default: break
         }

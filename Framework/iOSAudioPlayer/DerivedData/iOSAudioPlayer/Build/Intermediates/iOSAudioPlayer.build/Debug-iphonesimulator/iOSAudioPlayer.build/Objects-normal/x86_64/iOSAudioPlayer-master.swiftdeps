@@ -1,6 +1,0 @@
-version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
-options: "109333f4df069f0089f4a7fe4ad70f0f"
-build_time: [528380536, 119249000]
-inputs:
-  "/Users/tudor.stanean/Development/LabsDevelopment/iOS-AudioPlayer-Github/Framework/iOSAudioPlayer/iOSAudioPlayer/SpringboardData.swift": [528195772, 0]
-  "/Users/tudor.stanean/Development/LabsDevelopment/iOS-AudioPlayer-Github/Framework/iOSAudioPlayer/iOSAudioPlayer/TPGAudioPlayer.swift": [528380381, 0]

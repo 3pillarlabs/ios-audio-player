@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear( animated )
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.episodeLoadedNotification(_:)), name: NSNotification.Name(rawValue: TPGMediaLoadedStateNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.episodeLoadedNotification(_:)), name: .mediaLoadProgress, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     
     // MARK: Notifications
     
-    func episodeLoadedNotification(_ notification: Notification) {
+    @objc func episodeLoadedNotification(_ notification: Notification) {
         if let percentage: NSNumber = notification.object as? NSNumber {
             self.statusLabel.text = "\(percentage.intValue)% Loaded"
         }
@@ -83,11 +83,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func rewindButtonPressed(_ sender: AnyObject) {
-        TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.Backward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
+        TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.backward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
     }
     
     @IBAction func fastforwardButtonPressed(_ sender: AnyObject) {
-        TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.Forward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
+        TPGAudioPlayer.sharedInstance().skipDirection(skipDirection: SkipDirection.forward, timeInterval: kTestTimeInterval, offset: TPGAudioPlayer.sharedInstance().currentTimeInSeconds)
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         self.setupTotalTimeLabel()
     }
     
-    func sliderTimerTriggered() {
+    @objc func sliderTimerTriggered() {
         let playerCurrentTime = TPGAudioPlayer.sharedInstance().currentTimeInSeconds
         
         self.progressSlider.value = Float( playerCurrentTime )
